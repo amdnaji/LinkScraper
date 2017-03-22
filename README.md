@@ -1,6 +1,6 @@
 # Link Scraper
 ## Introduction
-When you add a link to some sites like Facebook, you will find notice the facebook is displaying some images for you to add it with your post. This usually know as <a href="https://en.wikipedia.org/wiki/Web_scraping">Web scraping</a> which allow you to parse a content then extract data from content .This data could be an images, link or anything else like images below.
+When you add a link to some sites like Facebook, you will notice the facebook is displaying some images for you to add it with your post. This usually known as <a href="https://en.wikipedia.org/wiki/Web_scraping">Web scraping</a> which allow you to parse the content then extract data from this content .This data could be an images, link or anything else.See examples below.
  <img src="http://i.imgur.com/TGRkktw.png" alt="http://i.imgur.com/TGRkktw.png">
   <img src="http://i.imgur.com/EGA6h42.png" alt="http://i.imgur.com/EGA6h42.png">
 ### How it Works
