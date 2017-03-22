@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Assets/Scripts/jquery-3.1.1.min.js"></script>
+    <link href="Styles/Site.css" rel="stylesheet" />
+    <title>Link Scraper</title>
+
+    <style>
+        img {
+            border: none;
+        }
+
+        .container {
+            height: 360px;
+            width: 910px;
+            margin: -180px 0 0 -450px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+        }
+
+        ul.thumb {
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+            border-color: Green;
+        }
+
+            ul.thumb li {
+                margin: 0;
+                padding: 5px;
+                float: left;
+                position: relative;
+                width: 150px;
+                height: 150px;
+            }
+
+                ul.thumb li img {
+                    width: 150px;
+                    height: 150px;
+                    border: 1px solid #ddd;
+                    padding: 5px;
+                    background: #f0f0f0;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    -ms-interpolation-mode: bicubic;
+                }
+
+                    ul.thumb li img.hover {
+                        background: url(thumb_bg.png) no-repeat center center;
+                        border: none;
+                    }
+
+        #main_view {
+            float: left;
+            padding: 9px 0;
+            margin-left: -10px;
+        }
+
+        .addressBox {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="page">
+            <div class="header">
+                <div class="title">
+                    <h1>
+                        Link scraper 
+                    </h1>
+                </div>
+            </div>
+            <div class="main">
+                <div>
+                    <label>URL:</label>
+                    <input id="url" type="text" class="addressBox" />
+                    <input id="Scrape" type="button" value="Scrape" />
+                </div>
+                <br />
+
+
+                <ul class="thumb"></ul>
+
+
+                <div style="margin-left: auto; margin-right: auto; width: 120px; display: none" id="Loader">
+                    <img src="~/Assets/ajax-loader.gif" />
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+        <script>
+            $("#Scrape").click(function () {
+                $('#Loader').show();
+                $('.thumb').empty();
+
+                var uri = '/home/Scrape';
+
+                //Send an AJAX request
+                var url = $("#url").val();
+
+                $.post(uri, { link: url })
+            .done(function (data) {
+                $('.thumb').append(data);
+                $('#Loader').hide();
+            });
+
+            });
+        </script>
+    </form>
+</body>
+</html>
+
+
